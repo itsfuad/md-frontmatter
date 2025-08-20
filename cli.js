@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+'use strict';
+var fs=require('fs'), analyze=require('./lib').analyze;
+var args=process.argv.slice(2), file=args[0];
+if(!file){console.error('Usage: node cli.js FILE');process.exit(2);}
+var source=fs.readFileSync(file,'utf8');
+console.log(JSON.stringify(analyze(source)));
